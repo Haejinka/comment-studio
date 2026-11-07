@@ -30,6 +30,16 @@ jobs:
       - run: npm run docs:check
       - run: npx playwright install chromium
       - run: npm test
+        env:
+          PLAYWRIGHT_OUTPUT_DIR: ${{ runner.temp }}/playwright-results
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: browser-test-diagnostics
+          path: |
+            ${{ runner.temp }}/playwright-results
+            samples/reply-heading*.png
+          if-no-files-found: ignore
       - run: npm run build
       - run: cargo test --manifest-path src-tauri/Cargo.toml --locked
       - run: npm run dist:win
