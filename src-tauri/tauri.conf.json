@@ -1,0 +1,9 @@
+{
+ "$schema":"https://schema.tauri.app/config/2",
+ "productName":"Comment Studio",
+ "version":"1.0.0",
+ "identifier":"com.commentstudio.desktop",
+ "build":{"beforeDevCommand":"npm run dev","devUrl":"http://127.0.0.1:5173","beforeBuildCommand":"npm run build","frontendDist":"../dist"},
+ "app":{"windows":[{"label":"main","title":"Comment Studio","width":1320,"height":940,"minWidth":850,"minHeight":650,"theme":"Dark","backgroundColor":"#101010","dragDropEnabled":false}],"security":{"csp":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost data: blob:; object-src 'none'; base-uri 'none'; frame-src 'none'"}},
+ "bundle":{"active":true,"targets":["nsis"],"icon":["icons/icon.ico","icons/icon.png"],"shortDescription":"Offline social comment image editor","windows":{"nsis":{"displayLanguageSelector":false,"installMode":"currentUser"},"webviewInstallMode":{"type":"downloadBootstrapper","silent":true}}}
+}

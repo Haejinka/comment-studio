@@ -1,0 +1,31 @@
+COMMENT STUDIO — START HERE
+
+1. Download Comment-Studio-Setup.exe for installation, or Comment-Studio.exe
+   to open the app without installing it.
+2. Open the app. No terminal, Node.js, or Rust installation is needed.
+3. Choose a platform and template on the left.
+4. Type your name and comment. Use Upload image to add a profile photo.
+5. Click Export image, choose a folder, and save your PNG.
+
+By default the PNG is transparent and uses 2x resolution. Import the file into
+Premiere Pro, CapCut, DaVinci Resolve, or another video editor as an overlay.
+
+Light / Dark in the header changes the app. Sun / moon above the preview
+changes the comment image. They are independent.
+
+Repeated exports suggest a numbered filename. Copy image copies an image;
+Copy text copies the original plain text.
+
+BACK UP YOUR DRAFTS
+Open Draft backups > Export backup. To move work from the browser into Windows,
+export there first, then import the JSON backup in the Windows app. Import
+replaces the current drafts, so export those first if you want to keep them.
+
+WINDOWS REQUIREMENTS
+64-bit Windows 10/11 (Intel/AMD), with Microsoft Edge WebView2. The installer
+can download WebView2 if it is missing. Normal use works offline. Current
+builds are unsigned and can show an unknown-publisher notice.
+
+Guides: https://github.com/Haejinka/comment-studio#find-the-right-guide
+Downloads: https://github.com/Haejinka/comment-studio/releases/latest
+Help: https://github.com/Haejinka/comment-studio/issues

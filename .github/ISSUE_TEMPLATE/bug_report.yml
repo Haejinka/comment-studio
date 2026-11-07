@@ -1,0 +1,47 @@
+name: Bug report
+description: Something does not work as expected
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: Please use sample text and a placeholder avatar when sharing screenshots or files.
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Where are you using it?
+      options:
+        - Windows installer
+        - Standalone Windows executable
+        - Browser / development edition
+    validations:
+      required: true
+  - type: input
+    id: template
+    attributes:
+      label: Platform and template
+      placeholder: TikTok - Comment Reply
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you click or change?
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Error text or screenshot
+      description: Add non-personal examples if possible.

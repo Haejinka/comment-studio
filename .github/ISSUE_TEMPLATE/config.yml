@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the quick start
+    url: https://github.com/Haejinka/comment-studio/blob/main/docs/QUICK_START.md
+    about: Start here if you are new to the app.
+  - name: Troubleshooting guide
+    url: https://github.com/Haejinka/comment-studio/blob/main/docs/TROUBLESHOOTING.md
+    about: Help with installation, exports, clipboard, CSV, and drafts.

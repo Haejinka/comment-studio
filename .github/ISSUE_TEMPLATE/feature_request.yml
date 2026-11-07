@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an improvement to your workflow
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would make it easier?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example or reference
+      description: Optional screenshot or explanation. Avoid personal information.
