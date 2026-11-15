@@ -54,7 +54,7 @@ npm run build
 cargo test --manifest-path src-tauri/Cargo.toml --locked
 ```
 
-Browser tests cover templates, fields, images, formatting, themes, storage, backups, actual decoded PNG files, alpha transparency, 1×–4× dimensions, clipboard behavior, CSV/bulk ZIP exports, and editor layout. Rust tests cover file validation and available numbered filenames.
+Browser tests cover templates, fields, images, formatting, themes, storage, backups, actual decoded PNG files, alpha transparency, 1×–4× dimensions, clipboard behavior, CSV/bulk ZIP exports, and editor layout down to 850 × 480. Rust tests cover file validation, available numbered filenames, and startup sizing at common display scales.
 
 Screenshot/font rasterization varies by OS. Font checks allow a small rendering tolerance; the Windows build falls back to Inter when Proxima Nova is absent.
 
@@ -72,6 +72,14 @@ Tauri produces the standalone executable and NSIS installer under `src-tauri/tar
 The release workflow does not require a signing certificate. Builds are unsigned. Automatic in-app updates are not implemented.
 
 ## Native smoke testing
+
+After building, check the actual launch bounds and visible export controls without handling any dialogs:
+
+```powershell
+node scripts/test-window-layout.mjs
+```
+
+This launches an isolated test instance, confirms its outer bounds fit the monitor work area without maximizing, checks single and bulk export controls, and closes the test instance. The screenshot is saved to `test-results/window-launch.png`.
 
 ```powershell
 node scripts/test-windows-app.mjs

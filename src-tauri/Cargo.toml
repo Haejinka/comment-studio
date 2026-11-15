@@ -1,6 +1,6 @@
 [package]
 name = "comment-studio"
-version = "1.0.0"
+version = "1.0.1"
 description = "Private offline social comment image editor"
 authors = ["Comment Studio"]
 edition = "2021"

@@ -174,7 +174,7 @@ p {
   display: grid;
   grid-template-columns: 448px minmax(0, 1fr);
   height: calc(100dvh - 66px);
-  min-height: 500px;
+  min-height: 0;
 }
 .sidebar {
   display: flex;
@@ -185,6 +185,8 @@ p {
   z-index: 2;
 }
 .sidebar-scroll {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 27px 27px 0;
   scrollbar-width: thin;
@@ -517,6 +519,7 @@ textarea {
   font-size: 9px;
 }
 .export-footer {
+  flex-shrink: 0;
   padding: 19px 27px 12px;
   border-top: 1px solid #323232;
   background: #181818;

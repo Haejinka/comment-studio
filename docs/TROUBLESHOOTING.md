@@ -21,6 +21,10 @@ The current release is not digitally signed. An unknown-publisher notice can app
 
 Use the assets attached to this repository’s [Releases page](https://github.com/Haejinka/comment-studio/releases). `SHA256SUMS.txt` lists the checksums of those assets for users who want to verify their download. If your organization manages the computer, follow its software-installation policy.
 
+## The bottom buttons are below the taskbar
+
+Update to **1.0.1 or later** from [Releases](https://github.com/Haejinka/comment-studio/releases/latest), then close and reopen the app. It now fits the available desktop space at launch, including Windows display scaling and the taskbar. The editor scrolls independently, keeping export and copy buttons visible without maximizing.
+
 ## I cannot find my exported PNG
 
 In the Windows app, **Export image** opens a Save As dialog. The file goes into the folder you choose. If a name already exists in the suggested folder, the app offers a numbered default name, such as `comment (2).png`.

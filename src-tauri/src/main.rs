@@ -4,6 +4,28 @@ use std::path::Path;
 use tauri::Manager;
 use tauri_plugin_clipboard_manager::ClipboardExt;
 use tauri_plugin_dialog::DialogExt;
+mod window_layout;
+
+fn fit_startup_window(window: &tauri::WebviewWindow) -> tauri::Result<()> {
+    if let Some(monitor) = window.current_monitor()?.or(window.primary_monitor()?) {
+        let work = monitor.work_area();
+        let inner = window.inner_size()?;
+        let outer = window.outer_size()?;
+        let frame = tauri::PhysicalSize::new(
+            outer.width.saturating_sub(inner.width),
+            outer.height.saturating_sub(inner.height),
+        );
+        let (size, minimum) = window_layout::fitted_sizes(work.size, frame, monitor.scale_factor());
+        window.set_min_size(Some(minimum))?;
+        window.set_size(size)?;
+        let outer = window.outer_size()?;
+        window.set_position(tauri::PhysicalPosition::new(
+            work.position.x + work.size.width.saturating_sub(outer.width) as i32 / 2,
+            work.position.y + work.size.height.saturating_sub(outer.height) as i32 / 2,
+        ))?;
+    }
+    Ok(())
+}
 
 #[derive(Serialize)]
 struct SaveResult {
@@ -141,6 +163,16 @@ fn main() {
         }
     }
     tauri::Builder::default()
+        .setup(|app| {
+            if let Some(window) = app.get_webview_window("main") {
+                // Fit before showing to avoid an oversized first frame behind the taskbar.
+                if let Err(error) = fit_startup_window(&window) {
+                    eprintln!("Could not fit startup window: {error}");
+                }
+                window.show()?;
+            }
+            Ok(())
+        })
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_clipboard_manager::init())
         .invoke_handler(tauri::generate_handler![
