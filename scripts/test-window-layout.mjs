@@ -12,6 +12,7 @@ const proc = spawn(
     env: {
       ...process.env,
       COMMENT_STUDIO_TEST_USER_DATA: profile,
+    WEBVIEW2_USER_DATA_FOLDER: profile,
       WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: "--remote-debugging-port=9238",
     },
     stdio: "ignore",

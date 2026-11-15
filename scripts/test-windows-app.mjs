@@ -12,6 +12,7 @@ const proc = spawn(binary, ["--test-mode"], {
     ...process.env,
     COMMENT_STUDIO_TEST_SAVE_DIR: output,
     COMMENT_STUDIO_TEST_USER_DATA: path.join(output, "webview-profile"),
+    WEBVIEW2_USER_DATA_FOLDER: path.join(output, "webview-profile"),
     WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: "--remote-debugging-port=9237",
   },
   stdio: "ignore",
